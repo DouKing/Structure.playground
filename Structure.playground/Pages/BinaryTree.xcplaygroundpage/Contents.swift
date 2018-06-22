@@ -232,3 +232,137 @@ inorderTraversal(t)
 print("后序遍历")
 postorderTraversal(t)
 
+
+//: 枚举实现二叉树
+indirect enum BinaryTree<T: Comparable> {
+  case empty
+  case node(BinaryTree<T>, T, BinaryTree<T>)
+
+  var count: Int {
+    switch self {
+    case .empty:
+      return 0
+    case let .node(left, _, right):
+      return 1 + left.count + right.count
+    }
+  }
+
+  var maxDepth: Int {
+    switch self {
+    case .empty:
+      return 0
+    case let .node(left, _, right):
+      return 1 + max(left.maxDepth, right.maxDepth)
+    }
+  }
+}
+
+extension BinaryTree: CustomStringConvertible {
+  public var description: String {
+    switch self {
+    case let .node(left, value, right):
+      return "value: \(value), left = [\(left.description)], right = [\(right.description)]"
+    case .empty:
+      return ""
+    }
+  }
+}
+
+extension BinaryTree {
+  public func traverseInOrder(process: (T) -> Void) {
+    if case let .node(left, value, right) = self {
+      left.traverseInOrder(process: process)
+      process(value)
+      right.traverseInOrder(process: process)
+    }
+  }
+
+  public func traversePreOrder(process: (T) -> Void) {
+    if case let .node(left, value, right) = self {
+      process(value)
+      left.traversePreOrder(process: process)
+      right.traversePreOrder(process: process)
+    }
+  }
+
+  public func traversePostOrder(process: (T) -> Void) {
+    if case let .node(left, value, right) = self {
+      left.traversePostOrder(process: process)
+      right.traversePostOrder(process: process)
+      process(value)
+    }
+  }
+
+  mutating func reverse() {
+    guard case .node(var left, let value, var right) = self else {
+      return
+    }
+    right.reverse()
+    left.reverse()
+    self = BinaryTree.node(right, value, left)
+  }
+}
+
+var tree = BinaryTree.node(
+  BinaryTree.node(
+    BinaryTree.node(
+      BinaryTree.node(
+        .empty,
+        5,
+        .empty),
+      4,
+      BinaryTree.node(
+        .empty,
+        6,
+        .empty)),
+    2,
+    BinaryTree.node(
+      BinaryTree.node(
+        .empty,
+        8,
+        .empty),
+      7,
+      BinaryTree.node(
+        .empty,
+        9,
+        .empty))),
+  1,
+  BinaryTree.node(
+    BinaryTree.node(
+      BinaryTree.node(
+        .empty,
+        12,
+        .empty),
+      10,
+      BinaryTree.node(
+        .empty,
+        13,
+        .empty)),
+    3,
+    BinaryTree.node(
+      BinaryTree.node(
+        .empty,
+        14,
+        .empty),
+      11,
+      .empty)))
+
+var inOrderArray: [Int] = []
+tree.traverseInOrder { (s) in
+  inOrderArray.append(s)
+}
+
+var preOrderArray: [Int] = []
+tree.traversePreOrder { (s) in
+  preOrderArray.append(s)
+}
+
+inOrderArray
+preOrderArray
+
+tree
+tree.reverse()
+
+
+
+

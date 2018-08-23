@@ -304,43 +304,43 @@ extension BinaryTree {
 }
 
 var tree = BinaryTree.node(
-  BinaryTree.node(
-    BinaryTree.node(
-      BinaryTree.node(
+  .node(
+    .node(
+      .node(
         .empty,
         5,
         .empty),
       4,
-      BinaryTree.node(
+      .node(
         .empty,
         6,
         .empty)),
     2,
-    BinaryTree.node(
-      BinaryTree.node(
+    .node(
+      .node(
         .empty,
         8,
         .empty),
       7,
-      BinaryTree.node(
+      .node(
         .empty,
         9,
         .empty))),
   1,
-  BinaryTree.node(
-    BinaryTree.node(
-      BinaryTree.node(
+  .node(
+    .node(
+      .node(
         .empty,
         12,
         .empty),
       10,
-      BinaryTree.node(
+      .node(
         .empty,
         13,
         .empty)),
     3,
-    BinaryTree.node(
-      BinaryTree.node(
+    .node(
+      .node(
         .empty,
         14,
         .empty),
@@ -363,6 +363,19 @@ preOrderArray
 tree
 tree.reverse()
 
+//: 打印路径
+var stack: [Int] = []
+func pathSum(root: BinaryTree<Int>) {
+  if case let .node(left, value, right) = root {
+    stack.append(value)
+    if case .empty = left, case .empty = right {
+      print("path: \(stack)")
+    }
+    pathSum(root: left)
+    pathSum(root: right)
+    stack.removeLast()
+  }
+}
 
-
+pathSum(root: tree)
 

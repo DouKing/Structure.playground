@@ -379,3 +379,36 @@ func pathSum(root: BinaryTree<Int>) {
 
 pathSum(root: tree)
 
+print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+
+func buildTree(inorder: [Int], postorder: [Int]) -> BinaryTreeNode? {
+    guard let rootVal = postorder.last else { return nil }
+    let root = BinaryTreeNode(rootVal)
+
+    let index = inorder.firstIndex(of: rootVal)!
+    let leftInorder = Array(inorder[..<index])
+    let rightInorder = Array(inorder[(index + 1)...])
+
+    let newPostorder = Array(postorder.dropLast())
+
+    let rightPostorder: [Int] = Array(newPostorder.suffix(rightInorder.count))
+    let leftPostorder: [Int] = Array(newPostorder.prefix(newPostorder.count - rightInorder.count))
+
+    root.leftChild = buildTree(inorder: leftInorder, postorder: leftPostorder)
+    root.rightChild = buildTree(inorder: rightInorder, postorder: rightPostorder)
+
+    return root
+}
+
+let inorder = [4, 2, 5, 7, 1, 3, 8, 6]
+let postorder = [4, 7, 5, 2, 8, 6, 3, 1]
+let tree2 = buildTree(inorder: inorder, postorder: postorder)
+print("层级遍历:")
+levelOrderTraverse(tree2)
+print("先序遍历:")
+nonRecursivePreorderTraversal(tree2)
+print("中序遍历:")
+nonRecursiveInorderTraversal(tree2)
+print("后序遍历")
+nonRecureivePostorderTraversal(tree2)
+

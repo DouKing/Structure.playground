@@ -133,8 +133,30 @@ def inorderTraversal(root, block):
     if not root:
         return
     inorderTraversal(root.left, block)
-    block(root.val)
+    block(root)
     inorderTraversal(root.right, block)
+
+def searchBST(root, val):
+    if not root:
+        return None
+    queue = [root]
+    current = 0
+    while current != len(queue):
+        node = queue[current]
+        current = current + 1
+        if not node:
+            continue
+        if node.val == val:
+            return node
+        if node.left:
+            queue.append(node.left)
+        else:
+            queue.append(None)
+        if node.right:
+            queue.append(node.right)
+        else:
+            queue.append(None)
+    return None
 
 class BSTIterator(object):
     index = 0
@@ -146,7 +168,7 @@ class BSTIterator(object):
         inorderTraversal(root, self.inorderCallback)
 
     def inorderCallback(self, x):
-        self.list.append(x)
+        self.list.append(x.val)
 
     def hasNext(self):
         """
@@ -174,3 +196,8 @@ while i.hasNext():
 
 print v
 
+node = searchBST(tree, 6)
+if node:
+    print node.val
+else:
+    print 'no node'

@@ -158,6 +158,56 @@ def searchBST(root, val):
             queue.append(None)
     return None
 
+def insertBST(root, val):
+    if not root:
+        return None
+    if val > root.val:
+        right = root.right
+        if not right:
+            root.right = TreeNode(val)
+        else:
+            insertBST(root.right, val)
+    else:
+        left = root.left
+        if not left:
+            root.left = TreeNode(val)
+        else:
+            insertBST(root.left, val)
+    return root
+
+def deleteBST(root, val):
+    def findMax(node):
+        if not node:
+            return None
+        right = node.right
+        if not right:
+            return node
+        return findMax(right)
+
+    if not root:
+        return None
+
+    left = root.left
+    right = root.right
+
+    if val > root.val:
+        root.right = deleteBST(root.right, val)
+    elif val < root.val:
+        root.left = deleteBST(root.left, val)
+    else:
+        if left and right:
+            temp = findMax(root.left)
+            root.val = temp.val
+            root.left = deleteBST(root.left, root.val)
+        elif left:
+            root = left
+        elif right:
+            root = right
+        else:
+            root = None
+
+    return root
+
 class BSTIterator(object):
     index = 0
     def __init__(self, root):
@@ -186,6 +236,28 @@ class BSTIterator(object):
         return result
 
 
+class KthLargest(object):
+
+    def __init__(self, k, nums):
+        """
+        :type k: int
+        :type nums: List[int]
+        """
+        self.nums = nums
+        self.k = k
+
+    def add(self, val):
+        """
+        :type val: int
+        :rtype: int
+        """
+        self.nums.append(val)
+
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
+
 tree = createTree([5, 2, 8, 1, 4, 6, 9])
 print serialize(tree)
 
@@ -201,3 +273,9 @@ if node:
     print node.val
 else:
     print 'no node'
+
+tree = insertBST(tree, 7)
+print serialize(tree)
+
+deleteBST(tree, 6)
+print serialize(tree)

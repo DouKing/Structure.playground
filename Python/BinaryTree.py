@@ -11,31 +11,31 @@ class TreeNode(object):
         self.right = None
 
 def createTree(values):
-        queue = []
-        root = None
+    queue = []
+    root = None
+    current = None
+    front = 0
+    real = -1
+    for x in values:
         current = None
-        front = 0
-        real = -1
-        for x in values:
-            current = None
-            if x is not None:
-                current = TreeNode(x)
-            real = real + 1
-            queue.append(current)
-            if real == 0:
-                root = current
-            else:
-                node = queue[front]
-                if node and current:
-                    if real % 2 == 1:
-                        node.left = current
-                    else:
-                        node.right = current
-                if real % 2 == 0:
-                    front = front + 1
-                while front < len(queue) and queue[front] == None:
-                    front = front + 1
-        return root
+        if x is not None:
+            current = TreeNode(x)
+        real = real + 1
+        queue.append(current)
+        if real == 0:
+            root = current
+        else:
+            node = queue[front]
+            if node and current:
+                if real % 2 == 1:
+                    node.left = current
+                else:
+                    node.right = current
+            if real % 2 == 0:
+                front = front + 1
+            while front < len(queue) and queue[front] == None:
+                front = front + 1
+    return root
 
 def buildTree(inorder, postorder):
     """

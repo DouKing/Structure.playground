@@ -10,6 +10,8 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+#MARK: 构建树
+
 def createTree(values):
     queue = []
     root = None
@@ -98,7 +100,6 @@ def buildTree2(preorder, inorder):
 
 def serialize(root):
     """Encodes a tree to a single string.
-
     :type root: TreeNode
     :rtype: str
     """
@@ -129,12 +130,28 @@ def serialize(root):
     l = map(desc, queue)
     return json.dumps(l)
 
+#MARK: 遍历
+
 def inorderTraversal(root, block):
     if not root:
         return
     inorderTraversal(root.left, block)
     block(root)
     inorderTraversal(root.right, block)
+
+#MARK: BST
+
+def isValidBST(root):
+    def _helper(node, min, max):
+        if not node:
+            return True
+        if min is not None and node.val <= min:
+            return False
+        if max is not None and node.val >= max:
+            return False
+        return _helper(node.left, min, node.val) and _helper(node.right, node.val, max)
+
+    return _helper(root, None, None)
 
 def searchBST(root, val):
     if not root:
@@ -160,6 +177,8 @@ def searchBST(root, val):
 
 def insertBST(root, val):
     if not root:
+        if val is not None:
+            return TreeNode(val)
         return None
     if val > root.val:
         right = root.right
@@ -208,74 +227,4 @@ def deleteBST(root, val):
 
     return root
 
-class BSTIterator(object):
-    index = 0
-    def __init__(self, root):
-        """
-        :type root: TreeNode
-        """
-        self.list = []
-        inorderTraversal(root, self.inorderCallback)
 
-    def inorderCallback(self, x):
-        self.list.append(x.val)
-
-    def hasNext(self):
-        """
-        :rtype: bool
-        """
-        count = len(self.list)
-        return self.index < count
-
-    def next(self):
-        """
-        :rtype: int
-        """
-        result = self.list[self.index]
-        self.index = self.index + 1
-        return result
-
-
-class KthLargest(object):
-
-    def __init__(self, k, nums):
-        """
-        :type k: int
-        :type nums: List[int]
-        """
-        self.nums = nums
-        self.k = k
-
-    def add(self, val):
-        """
-        :type val: int
-        :rtype: int
-        """
-        self.nums.append(val)
-
-
-# Your KthLargest object will be instantiated and called as such:
-# obj = KthLargest(k, nums)
-# param_1 = obj.add(val)
-
-tree = createTree([5, 2, 8, 1, 4, 6, 9])
-print serialize(tree)
-
-
-i, v = BSTIterator(tree), []
-while i.hasNext():
-    v.append(i.next())
-
-print v
-
-node = searchBST(tree, 6)
-if node:
-    print node.val
-else:
-    print 'no node'
-
-tree = insertBST(tree, 7)
-print serialize(tree)
-
-deleteBST(tree, 6)
-print serialize(tree)

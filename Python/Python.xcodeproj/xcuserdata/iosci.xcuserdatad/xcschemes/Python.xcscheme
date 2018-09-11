@@ -58,7 +58,7 @@
       </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "BinaryTree.py"
+            argument = "main.py"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

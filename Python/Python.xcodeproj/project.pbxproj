@@ -8,6 +8,9 @@
 
 /* Begin PBXFileReference section */
 		00945EB52147642200B0DC89 /* BinaryTree.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = BinaryTree.py; sourceTree = "<group>"; };
+		009CAA872147B02E00C2B294 /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		009CAA882147B0F200C2B294 /* BSTIterator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = BSTIterator.py; sourceTree = "<group>"; };
+		009CAA892147B12C00C2B294 /* KthLargest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = KthLargest.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -15,6 +18,9 @@
 			isa = PBXGroup;
 			children = (
 				00945EB52147642200B0DC89 /* BinaryTree.py */,
+				009CAA882147B0F200C2B294 /* BSTIterator.py */,
+				009CAA892147B12C00C2B294 /* KthLargest.py */,
+				009CAA872147B02E00C2B294 /* main.py */,
 			);
 			sourceTree = "<group>";
 		};
@@ -28,6 +34,7 @@
 			buildPhases = (
 			);
 			buildToolPath = "/usr/local/bin//python";
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = Python;

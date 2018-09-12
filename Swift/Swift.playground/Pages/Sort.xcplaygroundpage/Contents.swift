@@ -66,18 +66,18 @@ func quickSort(_ values: inout [Int], left: Int, right: Int){
 
 func partition(_ values: inout [Int], left: Int, right: Int) -> Int {
   let x = values[right]
-  var i = left - 1
+  var i = left
 
   for index in left ..< right {
     let v = values[index]
     if v <= x {
-      i = i + 1
       values.swapAt(i, index)
+      i = i + 1
     }
   }
 
-  values.swapAt(i + 1, right)
-  return i + 1
+  values.swapAt(i, right)
+  return i
 }
 //:归并排序
 func mergeSort(_ values: inout [Int]) {

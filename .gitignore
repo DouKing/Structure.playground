@@ -1,4 +1,5 @@
 .DS_Store
 Python/*.pyc
+Python/.idea/
 *.xcworkspace/xcshareddata/*.xccheckout
 *.xcworkspace/xcuserdata/

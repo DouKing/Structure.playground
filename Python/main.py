@@ -4,6 +4,7 @@
 import BinaryTree
 import KthLargest
 import MinStack
+import BracketsValid
 
 print 'Hello world!'
 
@@ -18,10 +19,10 @@ print obj.add(10)
 
 print '--------------'
 
-stack = MinStack.MinStack()
-stack.push(1)
-stack.push(2)
-stack.push(5)
-stack.push(4)
-stack.push(0)
-
+bracketsSolution = BracketsValid.Solution()
+print bracketsSolution.isValid('()')
+print bracketsSolution.isValid('()[]{}')
+print bracketsSolution.isValid('(]')
+print bracketsSolution.isValid('([)]')
+print bracketsSolution.isValid('({}[])')
+print bracketsSolution.isValid('({[]})')

@@ -5,6 +5,7 @@ import BinaryTree
 import KthLargest
 import MinStack
 import BracketsValid
+import MyQueue
 
 print 'Hello world!'
 
@@ -26,3 +27,14 @@ print bracketsSolution.isValid('(]')
 print bracketsSolution.isValid('([)]')
 print bracketsSolution.isValid('({}[])')
 print bracketsSolution.isValid('({[]})')
+
+print '--------------'
+
+queue = MyQueue.MyQueue()
+queue.push(1)
+print queue.peek()
+queue.push(2)
+print queue.empty()
+print queue.pop()
+print queue.pop()
+print queue.pop()

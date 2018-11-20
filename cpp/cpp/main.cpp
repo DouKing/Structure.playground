@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include "MyCircleQueue.hpp"
+#include "MyStack.cpp"
+
 using namespace std;
 
 static void testCircleQueue() {
@@ -23,7 +25,27 @@ static void testCircleQueue() {
   cout << queue.Rear() << endl;
 }
 
+void testMyStack() {
+  MyStack s;
+  s.push(1);
+  s.push(2);
+  s.push(3);
+  while (!s.empty()) {
+    cout << "my stack top is: " << s.pop() << endl;
+  }
+
+  s.push(4);
+  s.push(5);
+  s.push(6);
+  while (!s.empty()) {
+    int top = s.top();
+    s.pop();
+    cout << "my stack top is: " << top << endl;
+  }
+}
+
 int main(int argc, const char * argv[]) {
   testCircleQueue();
+  testMyStack();
   return 0;
 }

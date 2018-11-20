@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0064631E21608118000E606D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0064631D21608118000E606D /* main.cpp */; };
 		0064632621608137000E606D /* MyCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0064632421608137000E606D /* MyCircleQueue.cpp */; };
+		006C57D521A3E30C0040A7BC /* MyStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006C57D321A3E30C0040A7BC /* MyStack.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		0064631D21608118000E606D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0064632421608137000E606D /* MyCircleQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCircleQueue.cpp; sourceTree = "<group>"; };
 		0064632521608137000E606D /* MyCircleQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyCircleQueue.hpp; sourceTree = "<group>"; };
+		006C57D321A3E30C0040A7BC /* MyStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyStack.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				0064631D21608118000E606D /* main.cpp */,
+				006C57D321A3E30C0040A7BC /* MyStack.cpp */,
 				0064632421608137000E606D /* MyCircleQueue.cpp */,
 				0064632521608137000E606D /* MyCircleQueue.hpp */,
 			);
@@ -124,6 +127,7 @@
 			files = (
 				0064631E21608118000E606D /* main.cpp in Sources */,
 				0064632621608137000E606D /* MyCircleQueue.cpp in Sources */,
+				006C57D521A3E30C0040A7BC /* MyStack.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

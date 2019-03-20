@@ -1,7 +1,7 @@
 //: [Previous](@previous)
 //: [Next](@next)
 
-import UIKit
+import Foundation
 
 //链表节点
 class ListNode {

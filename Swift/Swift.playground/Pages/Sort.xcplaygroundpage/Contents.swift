@@ -168,5 +168,4 @@ print("归并：  \(array)")
 array = [13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21]
 heapSort(&array)
 print("堆排序  \(array)")
-
 //: [Next](@next)

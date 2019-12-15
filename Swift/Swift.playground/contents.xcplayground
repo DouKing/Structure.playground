@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='macos' display-mode='rendered' executeOnSourceChanges='false'>
+<playground version='6.0' target-platform='macos' display-mode='rendered'>
     <pages>
         <page name='Table'/>
         <page name='BinaryTree'/>
+        <page name='BinaryTree2'/>
         <page name='LinkList'/>
+        <page name='LinkList2'/>
         <page name='Sort'/>
+        <page name='Graph'/>
     </pages>
 </playground>

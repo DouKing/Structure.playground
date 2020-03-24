@@ -81,51 +81,37 @@ func partition(_ values: inout [Int], left: Int, right: Int) -> Int {
 }
 //:归并排序
 func mergeSort(_ values: inout [Int]) {
-//  var a = values
-//  let len = values.count
-//  var b = Array(repeating: 0, count: values.count)
-//  var seg = 1, start = 0
-//  while seg < len {
-//    while start < len {
-//      let low = start, mid = min(start + seg, len), high = min(start + seg * 2, len)
-//      var k = low
-//      var start1 = low, end1 = mid
-//      var start2 = mid, end2 = high
-//      while start1 < end1 && start2 < end2 {
-//        if a[start1] < a[start2] {
-//          b[k] = a[start1]
-//          start1 = start1 + 1
-//        } else {
-//          b[k] = a[start2]
-//          start2 = start2 + 1
-//        }
-//        k = k + 1
-//      }
-//      while start1 < end1 {
-//        b[k] = a[start1]
-//        start1 = start1 + 1
-//        k = k + 1
-//      }
-//      while start2 < end2 {
-//        b[k] = a[start2]
-//        start2 = start2 + 1
-//        k = k + 1
-//      }
-//      start = start + seg * 2
-//    }
-//    let temp = a
-//    a = b
-//    b = temp
-//    seg = seg + seg
-//  }
-//  if !a.elementsEqual(values) {
-//    var i = 0
-//    while i < len {
-//      b[i] = a[i]
-//      i = i + 1
-//    }
-//    b = a
-//  }
+    func merge(_ values: inout [Int], begin: Int, mid: Int, end: Int) {
+        var ai = begin
+        var li = 0, ri = mid
+        let le = mid - begin, re = end
+        var leftArray: [Int] = []
+        for i in begin ..< mid {
+            leftArray.append(values[i])
+        }
+        
+        while li < le {
+            if ri >= re || leftArray[li] < values[ri] {
+                values[ai] = leftArray[li]
+                li += 1
+                ai += 1
+            } else {
+                values[ai] = values[ri]
+                ri += 1
+                ai += 1
+            }
+        }
+    }
+    
+    func sort(_ values: inout [Int], begin: Int, end: Int) {
+        if end - begin < 2 { return }
+        let mid = (begin + end) >> 1
+        sort(&values, begin: begin, end: mid)
+        sort(&values, begin: mid, end: end)
+        merge(&values, begin: begin, mid: mid, end: end)
+    }
+    
+    sort(&values, begin: 0, end: values.count)
 }
 //: 堆排序
 func maxHeap(_ values: inout [Int], index: Int, length: Int) {
@@ -175,9 +161,9 @@ array = [13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21]
 quickSort(&array, left: 0, right: array.count - 1)
 print("快速：  \(array)")
 
-//array = [13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21]
-//mergeSort(&array)
-//print("归并：  \(array)")
+array = [13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21]
+mergeSort(&array)
+print("归并：  \(array)")
 
 array = [13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21]
 heapSort(&array)

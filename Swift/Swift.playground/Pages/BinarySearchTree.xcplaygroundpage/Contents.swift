@@ -58,16 +58,29 @@ public class BinarySearchTreeNode<T: Comparable> {
 }
 
 extension BinarySearchTreeNode: CustomStringConvertible {
+  private static func show(node: BinarySearchTreeNode?, prefix: String = "  ", content: String = "") -> String {
+    var nextPrefix = prefix + ((node?.isRightChild ?? true) ? "|" : " ")
+    var result = prefix + "·--"
+    if let node = node {
+      let value = "\(node.value)"
+      result += "\(value)\n"
+      for _ in 0 ..< (value.count - 1) {
+        nextPrefix += " "
+      }
+    } else {
+      result += "x\n"
+    }
+    
+    if node?.leftChild != nil || node?.rightChild != nil {
+      result += show(node: node?.rightChild, prefix: nextPrefix + "  ", content: result)
+      result += show(node: node?.leftChild, prefix: nextPrefix + "  ", content: result)
+    }
+    
+    return result
+  }
+  
   public var description: String {
-    var str = ""
-    if let left = leftChild {
-      str += "(\(left)) <- "
-    }
-    str += "\(value)"
-    if let right = rightChild {
-      str += " -> (\(right))"
-    }
-    return str
+    return BinarySearchTreeNode.show(node: self)
   }
 }
 

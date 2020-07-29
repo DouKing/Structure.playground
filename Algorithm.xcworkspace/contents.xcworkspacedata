@@ -7,4 +7,7 @@
    <FileRef
       location = "group:DataStructure.playground">
    </FileRef>
+   <FileRef
+      location = "group:leetcode.playground">
+   </FileRef>
 </Workspace>

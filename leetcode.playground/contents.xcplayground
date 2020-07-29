@@ -2,6 +2,6 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='26. 删除排序数组中的重复项'/>
-        <page name='Untitled Page'/>
+        <page name='290. 单词规律'/>
     </pages>
 </playground>

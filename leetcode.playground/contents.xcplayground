@@ -4,5 +4,6 @@
         <page name='26. 删除排序数组中的重复项'/>
         <page name='290. 单词规律'/>
         <page name='7. 整数反转'/>
+        <page name='9. 回文数'/>
     </pages>
 </playground>

@@ -5,6 +5,7 @@
         <page name='9. 回文数'/>
         <page name='13. 罗马数字转整数'/>
         <page name='14. 最长公共前缀'/>
+        <page name='21. 合并两个有序链表'/>
         <page name='26. 删除排序数组中的重复项'/>
         <page name='290. 单词规律'/>
     </pages>

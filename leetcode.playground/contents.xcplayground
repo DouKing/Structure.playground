@@ -10,6 +10,7 @@
         <page name='27. 移除元素'/>
         <page name='28. 实现 strStr()'/>
         <page name='35. 搜索插入位置'/>
+        <page name='38. 外观数列'/>
         <page name='290. 单词规律'/>
     </pages>
 </playground>

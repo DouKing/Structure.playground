@@ -12,5 +12,6 @@
         <page name='35. 搜索插入位置'/>
         <page name='38. 外观数列'/>
         <page name='290. 单词规律'/>
+        <page name='114. 二叉树展开为链表'/>
     </pages>
 </playground>

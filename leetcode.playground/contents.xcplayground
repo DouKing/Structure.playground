@@ -14,5 +14,6 @@
         <page name='67. 二进制求和'/>
         <page name='290. 单词规律'/>
         <page name='114. 二叉树展开为链表'/>
+        <page name='415. 字符串相加'/>
     </pages>
 </playground>

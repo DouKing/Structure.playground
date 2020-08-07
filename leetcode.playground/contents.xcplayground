@@ -25,5 +25,6 @@
         <page name='336. 回文对'/>
         <page name='337. 打家劫舍 III'/>
         <page name='415. 字符串相加'/>
+        <page name='108. 将有序数组转换为二叉搜索树'/>
     </pages>
 </playground>

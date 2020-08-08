@@ -11,6 +11,12 @@ class BinaryTreeNode {
   }
 }
 
+extension BinaryTreeNode: Equatable {
+  static func == (lhs: BinaryTreeNode, rhs: BinaryTreeNode) -> Bool {
+    return lhs.value == rhs.value
+  }
+}
+
 // 创建二叉树
 func createTree(values: [Int?]) -> BinaryTreeNode? {
   var queue: [BinaryTreeNode?] = []
@@ -180,6 +186,39 @@ func nonRecureivePostorderTraversal(_ root: BinaryTreeNode?) {
   print(ans)
 }
 
+//morris中序遍历
+func morrisTraversal(_ root: BinaryTreeNode?) {
+  var ans: [Int] = []
+  defer { print(ans) }
+  
+  let visit = { (v: Int) in
+    ans.append(v)
+  }
+
+  var node = root
+  while let current = node {
+    if let left = current.leftChild {
+      var pre = left
+      while let n = pre.rightChild, n != current {
+        pre = n
+      }
+      if let right = pre.rightChild {
+        if right == current {
+          visit(current.value)
+          pre.rightChild = nil
+          node = current.rightChild
+        }
+      } else {
+        pre.rightChild = current
+        node = current.leftChild
+      }
+    } else {
+      visit(current.value)
+      node = node?.rightChild
+    }
+  }
+}
+
 //翻转二叉树
 func reversalBinaryTree(_ root: BinaryTreeNode?) {
   guard let root = root else { return }
@@ -200,6 +239,7 @@ nonRecursivePreorderTraversal(t)
 print("中序遍历:")
 inorderTraversal(t)
 nonRecursiveInorderTraversal(t)
+morrisTraversal(t)
 print("后序遍历")
 postorderTraversal(t)
 nonRecureivePostorderTraversal(t)

@@ -38,14 +38,15 @@
         <page name='160. 相交链表'/>
         <page name='168. Excel表列名称'/>
         <page name='171. Excel表列序号'/>
+        <page name='172. 阶乘后的零'/>
         <page name='207. 课程表'/>
         <page name='290. 单词规律'/>
         <page name='336. 回文对'/>
         <page name='337. 打家劫舍 III'/>
         <page name='415. 字符串相加'/>
+        <page name='647. 回文子串'/>
         <page name='696. 计数二进制子串'/>
         <page name='703. 数据流中的第K大元素'/>
         <page name='733. 图像渲染'/>
-        <page name='172. 阶乘后的零'/>
     </pages>
 </playground>

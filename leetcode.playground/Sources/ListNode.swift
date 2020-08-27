@@ -28,6 +28,7 @@ extension ListNode: CustomDebugStringConvertible {
             str += "\(n.val) -> "
             node = n.next
         }
+        str += "nil"
         return str
     }
 }

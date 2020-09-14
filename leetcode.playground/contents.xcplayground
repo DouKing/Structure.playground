@@ -70,5 +70,6 @@
         <page name='696. 计数二进制子串'/>
         <page name='703. 数据流中的第K大元素'/>
         <page name='733. 图像渲染'/>
+        <page name='876. 链表的中间节点'/>
     </pages>
 </playground>

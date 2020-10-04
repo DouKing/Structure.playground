@@ -84,5 +84,7 @@
         <page name='876. 链表的中间节点'/>
         <page name='1290. 二进制链表转整数'/>
         <page name='1462. 课程安排 IV'/>
+        <page name='1560. 圆形赛道上经过次数最多的扇区'/>
+        <page name='1561. 你可以获得的最大硬币数目'/>
     </pages>
 </playground>

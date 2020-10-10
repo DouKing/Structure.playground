@@ -20,15 +20,50 @@ public class ListNode {
     }
 }
 
+extension ListNode: Hashable {
+    public static func == (lhs: ListNode, rhs: ListNode) -> Bool {
+        return lhs === rhs
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        
+    }
+}
+
 extension ListNode: CustomDebugStringConvertible {
     public var debugDescription: String {
+//        var node: ListNode? = self
+//        var str = ""
+//        while let n = node {
+//            str += "\(n.val) -> "
+//            node = n.next
+//        }
+//        str += "nil"
+//        return str
+        
+        var visited: Set<ListNode> = Set()
+        return desc(node: self, visited: &visited)
+    }
+    
+    private func desc(node: ListNode?, visited: inout Set<ListNode>) -> String {
         var node: ListNode? = self
         var str = ""
+        var pos: ListNode? = nil
         while let n = node {
-            str += "\(n.val) -> "
-            node = n.next
+            if visited.contains(n) {
+                pos = n
+                break
+            } else {
+                str += "\(n.val) -> "
+                visited.insert(n)
+                node = n.next
+            }
         }
-        str += "nil"
+        if let pos = pos {
+            str += "\(pos.val)"
+        } else {
+            str += "nil"
+        }
         return str
     }
 }

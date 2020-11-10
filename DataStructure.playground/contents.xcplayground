@@ -5,9 +5,9 @@
         <page name='BinaryTree'/>
         <page name='BinaryTree2'/>
         <page name='BinarySearchTree'/>
+        <page name='Heap'/>
         <page name='LinkList'/>
         <page name='LinkList2'/>
-        <page name='Sort'/>
         <page name='Graph'/>
     </pages>
 </playground>

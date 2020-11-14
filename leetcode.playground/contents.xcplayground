@@ -107,5 +107,7 @@
         <page name='1462. 课程安排 IV'/>
         <page name='1560. 圆形赛道上经过次数最多的扇区'/>
         <page name='1561. 你可以获得的最大硬币数目'/>
+        <page name='328. 奇偶链表'/>
+        <page name='1122. 数组的相对排序'/>
     </pages>
 </playground>

@@ -57,28 +57,25 @@ func maxDepth(root: BinaryTreeNode?) -> Int {
 //: 遍历
 //层级遍历
 func levelOrderTraverse(_ root: BinaryTreeNode?) {
+	guard let root = root else { return }
   var result = [BinaryTreeNode]()
-  var level = [BinaryTreeNode]()
-  if root != nil {
-    level.append(root!)
+  var queue = [BinaryTreeNode]()
+	queue.append(root)
+
+	while !queue.isEmpty {
+		let node = queue.removeFirst()
+		if let lefeNode = node.leftChild {
+			queue.append(lefeNode)
+		}
+		if let rightNode = node.rightChild {
+			queue.append(rightNode)
+		}
+		result.append(node)
   }
-  while level.count != 0 {
-    var nextLevel = [BinaryTreeNode]()
-    for node in level {
-      result.append(node)
-      if let lefeNode = node.leftChild {
-        nextLevel.append(lefeNode)
-      }
-      if let rightNode = node.rightChild {
-        nextLevel.append(rightNode)
-      }
-    }
-    level = nextLevel
-  }
+
   let ans = result.map {
     $0.value
   }
-  
   print(ans)
 }
 

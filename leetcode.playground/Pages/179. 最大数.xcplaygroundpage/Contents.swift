@@ -39,10 +39,8 @@ import Foundation
 
 class Solution {
   func largestNumber(_ nums: [Int]) -> String {
-    var strs = nums.map { val in "\(val)" }
-    strs.sort { (s1, s2) -> Bool in
-      (s1 + s2) > (s2 + s1)
-    }
+    var strs = nums.map { "\($0)" }
+    strs.sort { ($0 + $1) > ($1 + $0) }
     guard let str = strs.first else {
       return "0"
     }

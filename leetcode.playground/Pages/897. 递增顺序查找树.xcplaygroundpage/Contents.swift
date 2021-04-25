@@ -48,31 +48,53 @@
  */
 import Foundation
 
+//class Solution {
+//    func increasingBST(_ root: TreeNode?) -> TreeNode? {
+//        var values: [Int] = []
+//        inorder(root, values: &values)
+//        return create(with: values)
+//    }
+//
+//    func inorder(_ root: TreeNode?, values: inout [Int]) {
+//        guard let root = root else {
+//            return
+//        }
+//        inorder(root.left, values: &values)
+//        values.append(root.val)
+//        inorder(root.right, values: &values)
+//    }
+//
+//    func create(with values: [Int]?) -> TreeNode? {
+//        guard let values = values, values.count > 0 else { return nil }
+//        let ans = TreeNode(0)
+//        var cur: TreeNode? = ans
+//        for v in values {
+//            cur?.right = TreeNode(v)
+//            cur = cur?.right
+//        }
+//        return ans.right
+//    }
+//}
+
 class Solution {
+    var resNode: TreeNode?
+    
     func increasingBST(_ root: TreeNode?) -> TreeNode? {
-        var values: [Int] = []
-        inorder(root, values: &values)
-        return create(with: values)
+        let dummyNode = TreeNode(-1)
+        resNode = dummyNode
+        inorder(root)
+        return dummyNode.right
     }
     
-    func inorder(_ root: TreeNode?, values: inout [Int]) {
+    func inorder(_ root: TreeNode?) {
         guard let root = root else {
             return
         }
-        inorder(root.left, values: &values)
-        values.append(root.val)
-        inorder(root.right, values: &values)
-    }
-    
-    func create(with values: [Int]?) -> TreeNode? {
-        guard let values = values, values.count > 0 else { return nil }
-        let ans = TreeNode(0)
-        var cur: TreeNode? = ans
-        for v in values {
-            cur?.right = TreeNode(v)
-            cur = cur?.right
-        }
-        return ans.right
+        inorder(root.left)
+        resNode?.right = root
+        root.left = nil
+        resNode = root
+        inorder(root.right)
     }
 }
 

@@ -142,13 +142,14 @@
         <page name='1290. 二进制链表转整数'/>
         <page name='1365. 有多少小于当前数字的数字'/>
         <page name='1462. 课程安排 IV'/>
+        <page name='1486. 数组异或操作'/>
         <page name='1560. 圆形赛道上经过次数最多的扇区'/>
         <page name='1561. 你可以获得的最大硬币数目'/>
         <page name='1122. 数组的相对排序'/>
         <page name='1672. 最富有客户的资产总量'/>
         <page name='1720. 解码异或后的数组'/>
+        <page name='剑指 Offer 03. 数组中重复的数字'/>
         <page name='剑指 Offer 10- I. 斐波那契数列'/>
         <page name='剑指 Offer 57. 和为s的两个数字'/>
-        <page name='1486. 数组异或操作'/>
     </pages>
 </playground>

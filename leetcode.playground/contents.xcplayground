@@ -149,5 +149,6 @@
         <page name='1720. 解码异或后的数组'/>
         <page name='剑指 Offer 10- I. 斐波那契数列'/>
         <page name='剑指 Offer 57. 和为s的两个数字'/>
+        <page name='1486. 数组异或操作'/>
     </pages>
 </playground>

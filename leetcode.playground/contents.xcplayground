@@ -154,5 +154,6 @@
         <page name='剑指 Offer 06. 从尾到头打印链表'/>
         <page name='剑指 Offer 10- I. 斐波那契数列'/>
         <page name='剑指 Offer 57. 和为s的两个数字'/>
+        <page name='剑指 Offer 27. 二叉树的镜像'/>
     </pages>
 </playground>
